@@ -1,0 +1,902 @@
+[
+  {
+    "classe": "biparti",
+    "Y": "nb_triangles",
+    "X": "clique_max",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe biparti, nb_triangles <= f(clique_max)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "nb_triangles",
+    "X": "n",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe sans_triangle, nb_triangles <= f(n)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "deg_min",
+    "X": "m",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe connexe, deg_min <= f(m)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "nb_triangles",
+    "X": "domination_min",
+    "f": "<function <lambda> at 0x7933da391ea0>",
+    "texte": "Pour tout graphe connexe, nb_triangles <= f(domination_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "independance_max",
+    "X": "nb_triangles",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe sans_griffe, independance_max <= f(nb_triangles)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "densite",
+    "X": "couplage_max",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe biparti, densite <= f(couplage_max)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "densite",
+    "X": "domination_min",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe biparti, densite <= f(domination_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "independance_max",
+    "X": "deg_moyen",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe sans_triangle, independance_max <= f(deg_moyen)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "nb_triangles",
+    "X": "diametre",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe connexe, nb_triangles <= f(diametre)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "deg_min",
+    "X": "domination_min",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe sans_triangle, deg_min <= f(domination_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "m",
+    "X": "densite",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe sans_griffe, m <= f(densite)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "independance_max",
+    "X": "domination_min",
+    "f": "<function <lambda> at 0x7933da392170>",
+    "texte": "Pour tout graphe sans_triangle, independance_max <= f(domination_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "deg_max",
+    "X": "deg_moyen",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe sans_griffe, deg_max <= f(deg_moyen)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "couplage_max",
+    "X": "diametre",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe biparti, couplage_max <= f(diametre)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "domination_min",
+    "X": "nb_triangles",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe sans_triangle, domination_min <= f(nb_triangles)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "deg_max",
+    "X": "rayon",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe planaire, deg_max <= f(rayon)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "n",
+    "X": "deg_min",
+    "f": "<function <lambda> at 0x7933da392170>",
+    "texte": "Pour tout graphe biparti, n <= f(deg_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "rayon",
+    "X": "diametre",
+    "f": "<function <lambda> at 0x7933da392170>",
+    "texte": "Pour tout graphe sans_triangle, rayon <= f(diametre)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "deg_min",
+    "X": "clique_max",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe connexe, deg_min <= f(clique_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "deg_min",
+    "X": "independance_max",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe connexe, deg_min <= f(independance_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "domination_min",
+    "X": "n",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe planaire, domination_min <= f(n)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "m",
+    "X": "n",
+    "f": "<function <lambda> at 0x7933da391ea0>",
+    "texte": "Pour tout graphe sans_griffe, m <= f(n)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "domination_min",
+    "X": "deg_max",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe sans_griffe, domination_min <= f(deg_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "nb_triangles",
+    "X": "deg_moyen",
+    "f": "<function <lambda> at 0x7933da391ea0>",
+    "texte": "Pour tout graphe sans_triangle, nb_triangles <= f(deg_moyen)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "independance_max",
+    "X": "deg_min",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe connexe, independance_max <= f(deg_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "deg_moyen",
+    "X": "rayon",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe connexe, deg_moyen <= f(rayon)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "n",
+    "X": "diametre",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe sans_triangle, n <= f(diametre)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "densite",
+    "X": "m",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe connexe, densite <= f(m)",
+    "score": 0.010080337524414062,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "m",
+    "X": "diametre",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe planaire, m <= f(diametre)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "n",
+    "X": "clique_max",
+    "f": "<function <lambda> at 0x7933da392170>",
+    "texte": "Pour tout graphe sans_griffe, n <= f(clique_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "independance_max",
+    "X": "densite",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe sans_griffe, independance_max <= f(densite)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "deg_min",
+    "X": "rayon",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe connexe, deg_min <= f(rayon)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "m",
+    "X": "deg_min",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe planaire, m <= f(deg_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "couplage_max",
+    "X": "independance_max",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe sans_griffe, couplage_max <= f(independance_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "rayon",
+    "X": "densite",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe sans_griffe, rayon <= f(densite)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "densite",
+    "X": "couplage_max",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe planaire, densite <= f(couplage_max)",
+    "score": 0.15037035942077637,
+    "score_str": "0.2s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "clique_max",
+    "X": "deg_moyen",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe connexe, clique_max <= f(deg_moyen)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "n",
+    "X": "densite",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe sans_triangle, n <= f(densite)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "deg_min",
+    "X": "deg_max",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe connexe, deg_min <= f(deg_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "densite",
+    "X": "independance_max",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe biparti, densite <= f(independance_max)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "diametre",
+    "X": "deg_max",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe biparti, diametre <= f(deg_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "clique_max",
+    "X": "couplage_max",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe sans_griffe, clique_max <= f(couplage_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "couplage_max",
+    "X": "diametre",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe sans_triangle, couplage_max <= f(diametre)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "clique_max",
+    "X": "deg_max",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe biparti, clique_max <= f(deg_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "deg_min",
+    "X": "clique_max",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe biparti, deg_min <= f(clique_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "deg_moyen",
+    "X": "m",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe biparti, deg_moyen <= f(m)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "independance_max",
+    "X": "nb_triangles",
+    "f": "<function <lambda> at 0x7933da392170>",
+    "texte": "Pour tout graphe sans_triangle, independance_max <= f(nb_triangles)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "clique_max",
+    "X": "n",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe connexe, clique_max <= f(n)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "domination_min",
+    "X": "independance_max",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe biparti, domination_min <= f(independance_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "clique_max",
+    "X": "densite",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe connexe, clique_max <= f(densite)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "clique_max",
+    "X": "nb_triangles",
+    "f": "<function <lambda> at 0x7933da391ea0>",
+    "texte": "Pour tout graphe planaire, clique_max <= f(nb_triangles)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "deg_min",
+    "X": "independance_max",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe sans_griffe, deg_min <= f(independance_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "m",
+    "X": "domination_min",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe connexe, m <= f(domination_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "diametre",
+    "X": "m",
+    "f": "<function <lambda> at 0x7933da391ea0>",
+    "texte": "Pour tout graphe sans_griffe, diametre <= f(m)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "m",
+    "X": "domination_min",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe sans_triangle, m <= f(domination_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "m",
+    "X": "deg_min",
+    "f": "<function <lambda> at 0x7933da392170>",
+    "texte": "Pour tout graphe biparti, m <= f(deg_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "densite",
+    "X": "m",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe sans_griffe, densite <= f(m)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "couplage_max",
+    "X": "domination_min",
+    "f": "<function <lambda> at 0x7933da391ea0>",
+    "texte": "Pour tout graphe planaire, couplage_max <= f(domination_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "rayon",
+    "X": "deg_min",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe biparti, rayon <= f(deg_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "domination_min",
+    "X": "couplage_max",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe sans_triangle, domination_min <= f(couplage_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "deg_max",
+    "X": "domination_min",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe sans_griffe, deg_max <= f(domination_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "deg_moyen",
+    "X": "domination_min",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe sans_griffe, deg_moyen <= f(domination_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "couplage_max",
+    "X": "nb_triangles",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe sans_triangle, couplage_max <= f(nb_triangles)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "nb_triangles",
+    "X": "n",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe biparti, nb_triangles <= f(n)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "rayon",
+    "X": "n",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe planaire, rayon <= f(n)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "couplage_max",
+    "X": "independance_max",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe planaire, couplage_max <= f(independance_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "domination_min",
+    "X": "densite",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe sans_griffe, domination_min <= f(densite)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "densite",
+    "X": "rayon",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe connexe, densite <= f(rayon)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "domination_min",
+    "X": "n",
+    "f": "<function <lambda> at 0x7933da391ea0>",
+    "texte": "Pour tout graphe sans_triangle, domination_min <= f(n)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "n",
+    "X": "clique_max",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe biparti, n <= f(clique_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "couplage_max",
+    "X": "nb_triangles",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe connexe, couplage_max <= f(nb_triangles)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "deg_moyen",
+    "X": "clique_max",
+    "f": "<function <lambda> at 0x7933da392170>",
+    "texte": "Pour tout graphe planaire, deg_moyen <= f(clique_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "nb_triangles",
+    "X": "domination_min",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe connexe, nb_triangles <= f(domination_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "deg_max",
+    "X": "couplage_max",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe sans_griffe, deg_max <= f(couplage_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "nb_triangles",
+    "X": "deg_max",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe planaire, nb_triangles <= f(deg_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "deg_max",
+    "X": "nb_triangles",
+    "f": "<function <lambda> at 0x7933da391ea0>",
+    "texte": "Pour tout graphe sans_triangle, deg_max <= f(nb_triangles)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "deg_moyen",
+    "X": "deg_min",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe connexe, deg_moyen <= f(deg_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "nb_triangles",
+    "X": "rayon",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe planaire, nb_triangles <= f(rayon)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "rayon",
+    "X": "clique_max",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe planaire, rayon <= f(clique_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "nb_triangles",
+    "X": "densite",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe connexe, nb_triangles <= f(densite)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "clique_max",
+    "X": "deg_max",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe connexe, clique_max <= f(deg_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "rayon",
+    "X": "m",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe planaire, rayon <= f(m)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "deg_max",
+    "X": "independance_max",
+    "f": "<function <lambda> at 0x7933da392170>",
+    "texte": "Pour tout graphe sans_triangle, deg_max <= f(independance_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "deg_max",
+    "X": "deg_moyen",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe sans_griffe, deg_max <= f(deg_moyen)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "densite",
+    "X": "n",
+    "f": "<function <lambda> at 0x7933da391ea0>",
+    "texte": "Pour tout graphe sans_griffe, densite <= f(n)",
+    "score": 0.1547689437866211,
+    "score_str": "0.2s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "densite",
+    "X": "couplage_max",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe connexe, densite <= f(couplage_max)",
+    "score": 0.11133432388305664,
+    "score_str": "0.1s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "rayon",
+    "X": "nb_triangles",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe sans_triangle, rayon <= f(nb_triangles)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_triangle",
+    "Y": "nb_triangles",
+    "X": "diametre",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe sans_triangle, nb_triangles <= f(diametre)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "domination_min",
+    "X": "densite",
+    "f": "<function <lambda> at 0x7933da391ea0>",
+    "texte": "Pour tout graphe sans_griffe, domination_min <= f(densite)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "domination_min",
+    "X": "diametre",
+    "f": "<function <lambda> at 0x7933da391ea0>",
+    "texte": "Pour tout graphe planaire, domination_min <= f(diametre)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "deg_min",
+    "X": "densite",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe sans_griffe, deg_min <= f(densite)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "rayon",
+    "X": "densite",
+    "f": "<function <lambda> at 0x7933da391fc0>",
+    "texte": "Pour tout graphe biparti, rayon <= f(densite)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "deg_min",
+    "X": "couplage_max",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe sans_griffe, deg_min <= f(couplage_max)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "independance_max",
+    "X": "domination_min",
+    "f": "<function <lambda> at 0x7933da392170>",
+    "texte": "Pour tout graphe connexe, independance_max <= f(domination_min)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "deg_min",
+    "X": "rayon",
+    "f": "<function <lambda> at 0x7933da392200>",
+    "texte": "Pour tout graphe biparti, deg_min <= f(rayon)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "rayon",
+    "X": "n",
+    "f": "<function <lambda> at 0x7933da391f30>",
+    "texte": "Pour tout graphe biparti, rayon <= f(n)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "connexe",
+    "Y": "densite",
+    "X": "n",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe connexe, densite <= f(n)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "planaire",
+    "Y": "densite",
+    "X": "couplage_max",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe planaire, densite <= f(couplage_max)",
+    "score": 30,
+    "score_str": "30.0s"
+  },
+  {
+    "classe": "biparti",
+    "Y": "couplage_max",
+    "X": "diametre",
+    "f": "<function <lambda> at 0x7933da3920e0>",
+    "texte": "Pour tout graphe biparti, couplage_max <= f(diametre)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  },
+  {
+    "classe": "sans_griffe",
+    "Y": "rayon",
+    "X": "nb_triangles",
+    "f": "<function <lambda> at 0x7933da392050>",
+    "texte": "Pour tout graphe sans_griffe, rayon <= f(nb_triangles)",
+    "score": 0.0,
+    "score_str": "0.0s"
+  }
+]
