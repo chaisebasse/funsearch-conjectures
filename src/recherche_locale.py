@@ -8,100 +8,74 @@ import json
 from chargement_graphes import charger_petits_graphes
 from invariants import calculer_invariants
 from generate_conjectures import generer_conjecture
+from validate_conjecture import verifier_classe
 
-def verifier_classe(G, classe):
-    """
-    Vérifie si G appartient à la classe donnée
-    """
-    if classe == "connexe":
-        return nx.is_connected(G)
-    elif classe == "biparti":
-        return nx.is_bipartite(G)
-    elif classe == "planaire":
-        return nx.is_planar(G)
-    elif classe == "sans_triangle":
-        return sum(nx.triangles(G).values()) == 0
-    elif classe == "sans_griffe":
-        # Vérification simplifiée pour les petits graphes
-        for v in G.nodes():
-            voisins = list(G.neighbors(v))
-            if len(voisins) >= 3:
-                # Chercher 3 voisins indépendants
-                for i in range(len(voisins)):
-                    for j in range(i+1, len(voisins)):
-                        if G.has_edge(voisins[i], voisins[j]):
-                            break
-                    else:
-                        continue
-                    break
-                else:
-                    return False
-        return True
-    else:
-        return nx.is_connected(G)  # Par défaut
+# Convention : la fonction objectif d'une conjecture "Y <= f(X)" est
+#   obj(G) = Y(G) - f(X(G))
+# Un contre-exemple est un graphe où obj(G) > 0  (la conjecture est violée).
+# Le score d'une conjecture = temps (en secondes) avant de trouver un tel
+# contre-exemple, plafonné à temps_max. Un score élevé = conjecture difficile.
 
 def evaluer_conjecture_sur_graphe(G, conjecture):
     """
-    Retourne Y - f(X)
-    Si > 0, la conjecture est violée (contre-exemple)
+    Retourne obj(G) = Y(G) - f(X(G)).
+    - Si > 0 : contre-exemple (conjecture violée).
+    - Si <= 0 : conjecture respectée sur ce graphe.
+    - Retourne -inf si G n'appartient pas à la classe ou si f échoue.
     """
-    inv = calculer_invariants(G)
-
-    # Vérifier la classe
     if not verifier_classe(G, conjecture['classe']):
         return -float('inf')
 
+    inv = calculer_invariants(G)
     Y_val = inv[conjecture['Y']]
     X_val = inv[conjecture['X']]
-
+    
     try:
         fX = conjecture['f'](X_val)
-    except Exception as e:
-        print(f"  Erreur calcul f({X_val}): {e}")
+    except Exception:
         return -float('inf')
 
     return Y_val - fX
 
+
 def muter_graphe(G):
     """
-    Applique une mutation aléatoire en gardant la connexité
+    Applique une mutation aléatoire en préservant la connexité.
+    Retourne le nouveau graphe, ou None si la mutation est impossible.
     """
     G2 = copy.deepcopy(G)
     n = G2.number_of_nodes()
 
     mutation_type = random.choice(['add_edge', 'remove_edge', 'add_node', 'remove_node'])
 
-    # 1. Ajouter une arête
     if mutation_type == 'add_edge' and n >= 2:
-        non_edges = [(u,v) for u in range(n) for v in range(u+1,n) if not G2.has_edge(u,v)]
+        non_edges = [(u, v) for u in G2.nodes() for v in G2.nodes()
+                     if u < v and not G2.has_edge(u, v)]
         if non_edges:
-            u,v = random.choice(non_edges)
-            G2.add_edge(u,v)
+            u, v = random.choice(non_edges)
+            G2.add_edge(u, v)
             return G2
 
-    # 2. Supprimer une arête (en gardant connexe)
-    elif mutation_type == 'remove_edge' and G2.number_of_edges() > n-1:
+    elif mutation_type == 'remove_edge' and G2.number_of_edges() > n - 1:
         edges = list(G2.edges())
         random.shuffle(edges)
-        for u,v in edges:
-            G2.remove_edge(u,v)
+        for u, v in edges:
+            G2.remove_edge(u, v)
             if nx.is_connected(G2):
                 return G2
-            G2.add_edge(u,v)
+            G2.add_edge(u, v)  # Annuler : rendrait le graphe déconnecté
         return None
 
-    # 3. Ajouter un sommet
     elif mutation_type == 'add_node':
-        nouveau_id = n
+        nouveau_id = max(G2.nodes()) + 1 if G2.nodes() else 0
         G2.add_node(nouveau_id)
         nb_voisins = random.randint(1, min(3, n)) if n > 0 else 1
         if n > 0:
-            voisins = random.sample(range(n), min(nb_voisins, n))
+            voisins = random.sample(list(G2.nodes() - {nouveau_id}), min(nb_voisins, n))
             for v in voisins:
                 G2.add_edge(nouveau_id, v)
         return G2
 
-    # 4. Supprimer un sommet (en gardant connexe)
     elif mutation_type == 'remove_node' and n > 3:
         sommets = list(G2.nodes())
         random.shuffle(sommets)
@@ -114,42 +88,41 @@ def muter_graphe(G):
 
     return None
 
+
+def _graphe_connexe_aleatoire(taille):
+    """Génère un graphe connexe aléatoire de `taille` sommets."""
+    while True:
+        G = nx.gnm_random_graph(taille, taille + random.randint(1, max(1, taille // 2)))
+        if nx.is_connected(G):
+            return G
+
+
 def recherche_contre_exemple(conjecture, temps_max=60, taille_initiale=10):
     """
-    Recherche un contre-exemple par recherche locale
-    Retourne (temps_trouve, graphe_contre_exemple) ou (None, None)
+    Recherche un contre-exemple par recuit simulé (simulated annealing).
+
+    Retourne:
+        (temps_trouve: float, graphe: Graph) si contre-exemple trouvé
+        (None, None) si aucun contre-exemple dans le délai imparti
     """
     start_time = time.time()
 
-    # Générer graphe initial aléatoire connexe
-    G = nx.gnm_random_graph(taille_initiale, taille_initiale + random.randint(1, 3))
-    while not nx.is_connected(G):
-        G = nx.gnm_random_graph(taille_initiale, taille_initiale + random.randint(1, 5))
-
+    G = _graphe_connexe_aleatoire(taille_initiale)
     meilleur_score = evaluer_conjecture_sur_graphe(G, conjecture)
     meilleur_graphe = G
     tentatives_sans_progres = 0
     temperature = 1.0
-    iteration = 0
 
     while time.time() - start_time < temps_max:
-        iteration += 1
-
-        # Mutation
         nouveau_G = muter_graphe(meilleur_graphe)
         if nouveau_G is None:
-            # Redémarrage aléatoire
-            nouveau_G = nx.gnm_random_graph(taille_initiale, taille_initiale + random.randint(1, 5))
-            while not nx.is_connected(nouveau_G):
-                nouveau_G = nx.gnm_random_graph(taille_initiale, taille_initiale + random.randint(1, 5))
+            nouveau_G = _graphe_connexe_aleatoire(taille_initiale)
 
-        # Évaluer
         nouveau_score = evaluer_conjecture_sur_graphe(nouveau_G, conjecture)
 
-        # Si contre-exemple trouvé (score > 0)
+        # Contre-exemple trouvé (obj > 0)
         if nouveau_score > 0:
-            temps_trouve = time.time() - start_time
-            return temps_trouve, nouveau_G
+            return time.time() - start_time, nouveau_G
 
         # Critère d'acceptation
         if nouveau_score > meilleur_score:
@@ -158,18 +131,17 @@ def recherche_contre_exemple(conjecture, temps_max=60, taille_initiale=10):
             tentatives_sans_progres = 0
         else:
             delta = nouveau_score - meilleur_score
-            if random.random() < math.exp(delta / temperature):
+            if temperature > 1e-10 and random.random() < math.exp(delta / temperature):
                 meilleur_graphe = nouveau_G
                 tentatives_sans_progres = 0
             else:
                 tentatives_sans_progres += 1
 
-        # Refroidissement et redémarrage si stagnation
         temperature *= 0.99
+
+        # Redémarrage si stagnation
         if tentatives_sans_progres > 50:
-            G = nx.gnm_random_graph(taille_initiale, taille_initiale + random.randint(1, 5))
-            while not nx.is_connected(G):
-                G = nx.gnm_random_graph(taille_initiale, taille_initiale + random.randint(1, 5))
+            G = _graphe_connexe_aleatoire(taille_initiale)
             meilleur_graphe = G
             meilleur_score = evaluer_conjecture_sur_graphe(G, conjecture)
             tentatives_sans_progres = 0
@@ -177,15 +149,15 @@ def recherche_contre_exemple(conjecture, temps_max=60, taille_initiale=10):
 
     return None, None
 
+
 def calculer_score_conjecture(conjecture, temps_max=60):
     """
-    Calcule le score d'une conjecture :
-    - 0 si contre-exemple trouvé sur petits graphes
-    - temps mis pour trouver contre-exemple (ou temps_max si résiste)
+    Score d'une conjecture :
+    - 0.0  → contre-exemple trouvé immédiatement sur les petits graphes (<=8 sommets)
+    - t    → temps (secondes) mis par la recherche locale pour trouver un contre-exemple
+    - temps_max → aucun contre-exemple trouvé dans le délai : conjecture résistante
     """
-    # 1. Vérification sur petits graphes (≤8 sommets)
     petits_graphes = charger_petits_graphes(8)
-
     for G in petits_graphes:
         if verifier_classe(G, conjecture['classe']):
             inv = calculer_invariants(G)
@@ -194,25 +166,25 @@ def calculer_score_conjecture(conjecture, temps_max=60):
             try:
                 fX = conjecture['f'](X_val)
                 if Y_val > fX + 1e-9:
-                    print(f"  Contre-exemple trouvé sur petits graphes !")
+                    print("  Contre-exemple trouvé sur petits graphes → score = 0")
                     return 0.0
-            except:
+            except Exception:
                 pass
 
-    # 2. Recherche locale
     print(f"  Lancement recherche locale (max {temps_max}s)...")
     temps_trouve, _ = recherche_contre_exemple(conjecture, temps_max)
 
     if temps_trouve is None:
-        print(f"  Aucun contre-exemple trouvé en {temps_max}s")
-        return temps_max
+        print(f"  Aucun contre-exemple trouvé en {temps_max}s → score = {temps_max}")
+        return float(temps_max)
     else:
-        print(f"  Contre-exemple trouvé en {temps_trouve:.2f}s")
+        print(f"  Contre-exemple trouvé en {temps_trouve:.2f}s → score = {temps_trouve:.2f}")
         return temps_trouve
+
 
 def explorer_conjectures(nb_conjectures=100):
     """
-    Génère et évalue un grand nombre de conjectures
+    Génère et évalue un grand nombre de conjectures, sauvegarde les meilleures.
     """
     results = []
     os.makedirs('conjectures', exist_ok=True)
@@ -240,19 +212,16 @@ def explorer_conjectures(nb_conjectures=100):
         with open('results/conjectures_evaluees.json', 'w') as f:
             json.dump(results, f, indent=2, default=str)
 
-    # Trier par score
+    # Trier par score décroissant
     results.sort(key=lambda x: x['score'], reverse=True)
 
-    # Sauvegarder les meilleures
-    top_conjectures = [c for c in results if c['score'] >= 20]
-    with open('conjectures/top_conjectures.json', 'w') as f:
-        json.dump(top_conjectures, f, indent=2, default=str)
+    # Sauvegarder les meilleures (score >= 20s)
+    conjectures = [c for c in results]
+    with open('conjectures/conjectures.json', 'w') as f:
+        json.dump(conjectures, f, indent=2, default=str)
 
     print("\n=== TOP 5 CONJECTURES ===")
     for i, conj in enumerate(results[:5]):
-        print(f"{i+1}. {conj['texte']} -> {conj['score']:.1f}s")
+        print(f"{i+1}. {conj['texte']} → {conj['score']:.1f}s")
 
     return results
-
-if __name__ == "__main__":
-    explorer_conjectures(nb_conjectures=100)
